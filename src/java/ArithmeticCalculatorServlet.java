@@ -20,6 +20,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("result","---");
         getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response);
     }
@@ -29,6 +30,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         String f = request.getParameter("first");
         String s = request.getParameter("second");
         String calc = request.getParameter("calculation");
+        
         try
         {
             int fnum = Integer.parseInt(f);
@@ -55,6 +57,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 result = fnum / snum;
                 request.setAttribute("result",result);
             }
+            
         }catch (NumberFormatException e)
         {
             request.setAttribute("result", "You have to put valid number");
