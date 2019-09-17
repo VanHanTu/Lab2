@@ -54,7 +54,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             }
             if(calc.equals("%"))
             {
-                result = fnum / snum;
+                result = fnum % snum;
                 request.setAttribute("result",result);
             }
             
